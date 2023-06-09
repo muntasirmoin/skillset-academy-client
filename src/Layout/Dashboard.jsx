@@ -13,9 +13,16 @@ const Dashboard = () => {
             {isAdmin && (
               <>
                 <li>
-                  <NavLink to="/dashboard/admin" activeClassName="font-bold">
+                  <NavLink to="/dashboard" activeClassName="font-bold">
                     Admin Dashboard
                   </NavLink>
+                  {/* manageclasses */}
+                </li>
+                <li>
+                  <NavLink to="/dashboard/manageclasses" activeClassName="font-bold">
+                    Manage Classes
+                  </NavLink>
+                  {/* manageclasses */}
                 </li>
                 {/* Add more admin-specific links */}
               </>
@@ -26,6 +33,11 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/instructor" activeClassName="font-bold">
                     Instructor Dashboard
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/addclass" activeClassName="font-bold">
+                    Add Class
                   </NavLink>
                 </li>
                 {/* Add more instructor-specific links */}
@@ -43,7 +55,7 @@ const Dashboard = () => {
               </>
             )}
 
-            <li>
+            {/* <li>
               <NavLink to="/dashboard/home" activeClassName="font-bold">
                 Home
               </NavLink>
@@ -52,7 +64,7 @@ const Dashboard = () => {
               <NavLink to="/dashboard/profile" activeClassName="font-bold">
                 Profile
               </NavLink>
-            </li>
+            </li> */}
             {/* Add more common links */}
           </ul>
         </nav>
