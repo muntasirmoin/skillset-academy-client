@@ -4,6 +4,8 @@ import useInstructor from '../hooks/useInstructor';
 import { motion } from 'framer-motion';
 import { MdManageAccounts, MdOutlineManageAccounts } from 'react-icons/md';
 import { SiGoogleclassroom } from 'react-icons/si';
+import { BsDatabaseAdd } from 'react-icons/bs';
+import { FaSchool, FaCheckCircle } from 'react-icons/fa';
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
@@ -24,16 +26,16 @@ const Dashboard = () => {
                                 <hr className='text-red-500' />
                                 <li className='hover:text-green-400 font-bold mb-2'>
                                     <NavLink to="/dashboard/manageclasses" activeClassName="font-bold">
-                                    <SiGoogleclassroom size={24} className="mr-2" style={{ display: 'inline-block' }} />
-      <span style={{ display: 'inline-block' }}>Manage Classes</span>
+                                        <SiGoogleclassroom size={24} className="mr-2" style={{ display: 'inline-block' }} />
+                                        <span style={{ display: 'inline-block' }}>Manage Classes</span>
                                     </NavLink>
 
                                 </li>
 
                                 <li className='hover:text-green-400 font-bold mb-2'>
                                     <NavLink to="/dashboard/allusers" activeClassName="font-bold">
-                                    <MdOutlineManageAccounts size={24} className="mr-2" style={{ display: 'inline-block' }} />
-      <span style={{ display: 'inline-block' }}>Manage Users</span>
+                                        <MdOutlineManageAccounts size={24} className="mr-2" style={{ display: 'inline-block' }} />
+                                        <span style={{ display: 'inline-block' }}>Manage Users</span>
                                     </NavLink>
 
                                 </li>
@@ -43,27 +45,37 @@ const Dashboard = () => {
 
                         {isInstructor && (
                             <>
-                                <li>
-                                    <NavLink to="/dashboard/instructor" activeClassName="font-bold">
-                                        Instructor Dashboard
+                                <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
+                                    <NavLink to="/dashboard" activeClassName="font-bold">
+                                        Instructor
                                     </NavLink>
                                 </li>
-                                <li>
-                                    <NavLink to="/dashboard/addclass" activeClassName="font-bold">
-                                        Add Class
+                                <hr className='text-red-500' />
+                                <li className='hover:text-green-400 font-bold mb-2'>
+                                <NavLink to="/dashboard/addclass" activeClassName="font-bold">
+                                        <BsDatabaseAdd size={24} className="mr-2" style={{ display: 'inline-block' }} />
+                                        <span className='text-center' style={{ display: 'inline-block'  }}>Add Class</span>
                                     </NavLink>
                                 </li>
-                                {/* Add more instructor-specific links */}
+
+                                <li className='hover:text-green-400 font-bold mb-2'>
+                                <NavLink to="/dashboard/myclasses" activeClassName="font-bold">
+                                        <FaSchool size={24} className="mr-2" style={{ display: 'inline-block' }} />
+                                        <span className='text-center' style={{ display: 'inline-block'  }}>My Classes</span>
+                                    </NavLink>
+                                </li>
+                                {/* Add more instructor-specific links My Classes */}
                             </>
                         )}
 
                         {!isAdmin && !isInstructor && (
                             <>
-                                <li>
+                                <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
                                     <NavLink to="/dashboard/student" activeClassName="font-bold">
                                         Student Dashboard
                                     </NavLink>
                                 </li>
+                                <hr className='text-red-500' />
                                 {/* Add more student-specific links */}
                             </>
                         )}

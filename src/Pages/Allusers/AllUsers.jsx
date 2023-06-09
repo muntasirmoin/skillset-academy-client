@@ -99,7 +99,7 @@ const AllUsers = () => {
                                     <td>
                                         {
                                             user.role === 'admin' || user.role === 'instructor' ? <> <span className='uppercase text-green-400 font-bold'>{`${user?.role} `}</span>
-                                                <div className='border border-2 border-red-300 border-double p-1'>
+                                                <div className='border-2 border-red-300 border-double p-1'>
                                                     <button disabled={true} className="btn btn-ghost bg-orange-600  text-white" style={{ fontSize: '24px' }}><GrUserAdmin></GrUserAdmin></button>
 
                                                     <button disabled={true} className="ms-1 btn btn-ghost bg-orange-600  text-white" style={{ fontSize: '24px' }}><GiTeacher></GiTeacher></button>

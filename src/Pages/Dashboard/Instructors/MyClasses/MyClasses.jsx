@@ -19,7 +19,7 @@ const MyClasses = () => {
 
     return (
         <div>
-             <h3 className="text-3xl font-semibold my-4">My Classes: {classes.length}</h3>
+             <h3 className="text-3xl font-semibold my-4 text-center">My Classes: {classes.length}</h3>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
@@ -32,6 +32,10 @@ const MyClasses = () => {
                             <th>price</th>
                         
                             <th>Status</th>
+                            {/* Total Enrolled Students, Feedback & Update button. */}
+                            <th>Enrolled</th>
+                            <th>Feedback</th>
+                            <th>Update</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,8 +58,9 @@ const MyClasses = () => {
                                     // </>
                                  }
                                  </td></td>
+                                 <td></td>
                
-                                <td><button onClick={() => handleDelete(classe._id)} className="btn btn-ghost bg-red-600  text-white">delete</button></td>
+                                <td><button onClick={() => handleDelete(classe._id)} className="btn btn-ghost bg-red-600  text-white">Update</button></td>
                             </tr>)
                         }
                         

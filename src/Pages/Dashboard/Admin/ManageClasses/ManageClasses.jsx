@@ -70,7 +70,7 @@ const ManageClasses = () => {
         <div>
             <h3 className="text-3xl font-semibold my-4 text-center">Manage Classes: {classes.length}</h3>
             <div className="overflow-x-auto">
-                <table className="table table-zebra w-full">
+                <table className="table  table-auto w-full overflow-x-auto">
                     {/* head */}
                     <thead>
 
@@ -104,7 +104,7 @@ const ManageClasses = () => {
                                     <td>
                                         {
                                             classe.status === 'approve' || classe.status === 'deny' ? <>
-                                                <div className='border border-2 border-red-300 border-double p-1'>
+                                                <div className='border-2 border-red-300 border-double p-1'>
 
                                                     <button disabled={true} className="btn btn-sm btn-outline btn-success mb-2" style={{ fontSize: '10px' }}>Approve</button>
 

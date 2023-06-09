@@ -57,12 +57,12 @@ const AddClass = () => {
   };
     return (
         <div>
-            <h2>Add Class</h2>
+            
 
             <div>
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-xs">
-      <h2 className="text-2xl font-bold mb-4">Add a Class</h2>
+            <h3 className="text-3xl font-semibold my-4 text-center">Add a Class</h3>
       <form className="bg-white shadow-md rounded px-8 py-6" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="className">
