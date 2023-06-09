@@ -17,61 +17,61 @@ const AllUsers = () => {
 
     useEffect(() => {
         fetch(`http://localhost:3000/users`)
-          .then((res) => res.json())
-          .then((data) => {
-            // console.log(data);
-            setUsers(data);
-          });
-      }, [users]);
+            .then((res) => res.json())
+            .then((data) => {
+                // console.log(data);
+                setUsers(data);
+            });
+    }, [users]);
 
-// admin make
-      const handleMakeAdmin = user =>{
+    // admin make
+    const handleMakeAdmin = user => {
         fetch(`http://localhost:3000/users/admin/${user._id}`, {
             method: 'PATCH'
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.modifiedCount){
-                // refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${user.name} is an Admin Now!`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    // refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     //  make instructor
 
-    const handleMakeInstructor = user =>{
+    const handleMakeInstructor = user => {
         fetch(`http://localhost:3000/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.modifiedCount){
-                // refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${user.name} is an Instructor Now!`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    // refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Instructor Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
 
 
     return (
         <div>
-             <h3 className="text-3xl font-semibold my-4">Total Users: {users.length}</h3>
+            <h3 className="text-3xl font-semibold my-4 text-center">Manage Users: {users.length}</h3>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
@@ -80,12 +80,12 @@ const AllUsers = () => {
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            
+
                             <th>Role: Admin / instructor</th>
-                            
+
                             {/* <th>Admin</th> */}
                             {/* <th>Instructor</th> */}
-                            <th>Action</th>
+                            {/* <th>Action</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -94,25 +94,27 @@ const AllUsers = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                 {/*  */}
-                                 <td>
-                                 <td>
-                                 {
-                                    user.role === 'admin' || user.role === 'instructor' ?  <> {`${user?.role} :`}
-                                    <button disabled={true} className="btn btn-ghost bg-orange-600  text-white"  style={{ fontSize: '24px' }}><GrUserAdmin></GrUserAdmin></button> 
+                                {/*  */}
+                                <td>
+                                    <td>
+                                        {
+                                            user.role === 'admin' || user.role === 'instructor' ? <> <span className='uppercase text-green-400 font-bold'>{`${user?.role} `}</span>
+                                                <div className='border border-2 border-red-300 border-double p-1'>
+                                                    <button disabled={true} className="btn btn-ghost bg-orange-600  text-white" style={{ fontSize: '24px' }}><GrUserAdmin></GrUserAdmin></button>
 
-                                    <button disabled={true} className="ms-1 btn btn-ghost bg-orange-600  text-white" style={{ fontSize: '24px' }}><GiTeacher></GiTeacher></button> 
-                                    
-                                    </> :
-                                    <>
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"  style={{ fontSize: '24px' }}><GrUserAdmin></GrUserAdmin></button> 
+                                                    <button disabled={true} className="ms-1 btn btn-ghost bg-orange-600  text-white" style={{ fontSize: '24px' }}><GiTeacher></GiTeacher></button>
+                                                </div>
 
-                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white" style={{ fontSize: '24px' }}><GiTeacher></GiTeacher></button> 
-                                    
-                                    </>
-                                 }
-                                 </td></td>
-               
+                                            </> :
+                                                <>
+                                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white" style={{ fontSize: '24px' }}><GrUserAdmin></GrUserAdmin></button>
+
+                                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white" style={{ fontSize: '24px' }}><GiTeacher></GiTeacher></button>
+
+                                                </>
+                                        }
+                                    </td></td>
+
                                 {/*  */}
                                 {/* <td>{ user.role === 'admin' ? 'admin' :
                                     <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white">Admin</button> 
@@ -121,12 +123,12 @@ const AllUsers = () => {
                                     <td>{ user.role === 'instructor' ? 'instructor' :
                                     <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white">Instructor</button> 
                                     }</td> */}
-                                    {/*  */}
-                                <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white">delete</button></td>
+                                {/*  */}
+                                {/* <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white">delete</button></td> */}
                             </tr>)
                         }
-                        
-                        
+
+
                     </tbody>
                 </table>
             </div>
