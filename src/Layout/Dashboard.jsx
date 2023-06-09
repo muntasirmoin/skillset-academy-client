@@ -1,6 +1,10 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import useAdmin from '../hooks/useAdmin';
+import useInstructor from '../hooks/useInstructor';
 
-const Dashboard = ({ isAdmin, isInstructor }) => {
+const Dashboard = () => {
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
   return (
     <div className="flex">
       <div className="w-1/4 bg-gray-200">

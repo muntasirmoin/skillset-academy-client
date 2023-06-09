@@ -28,7 +28,8 @@ const NavBar = ({isLoggedIn,userProfilePicture}) => {
           </li>
           {user ? (
             <li className="flex items-center space-x-2">
-              <a href="#" className="hover:text-white">Dashboard</a>
+              {/* dashboard */}
+              <Link to='/dashboard'><a href="#" className="hover:text-white">Dashboard</a></Link>
               <img
                 src={user?.photoURL}
                 alt="User Profile"
