@@ -82,6 +82,16 @@ const Dashboard = () => {
                                     My Selected Classes
                                     </NavLink>
                                 </li>
+                                <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
+                                    <NavLink to="/dashboard/myenroll" activeClassName="font-bold">
+                                    My Enroll Classes
+                                    </NavLink>
+                                </li>
+                                <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
+                                    <NavLink to="/dashboard/paymenthistory" activeClassName="font-bold">
+                                  Payment History
+                                    </NavLink>
+                                </li>
                                 {/* Add more student-specific links */}
                             </>
                         )}
