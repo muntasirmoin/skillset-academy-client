@@ -18,109 +18,59 @@ const ClassCard = ({ classData, selectedCart }) => {
     // console.log('user email', user?.email)
 
     const [selected, setSelected] = useState(false);
+    const [paid, setPaid]= useState(false);
+    const { className, image, availableSeats, price, _id } = classData;
 
-
+// class data
 
     fetch(`http://localhost:3000/selectedCard/${user?.email}`)
         .then(res => res.json())
         .then(selectedClassesData => {
-            console.log('cart', selectedClassesData);
+            // console.log('cart', selectedClassesData);
             //   const selectedClasses = selectedClassesData.map(item => item.selectId); // Extract the selectId from selected classes
             const selectedEmail = selectedClassesData.map(item => item.email);
             const selectedUserEmail = selectedEmail.find(item => item.email === user?.email);
 
             const selectedClasses = selectedClassesData.map(item => item.selectId); // Extract the selectId from selected classes
-            console.log('cart', selectedClassesData);
+            // console.log('cart', selectedClassesData);
             if (selectedClasses.includes(classData._id) === true) {
                 // console.log('hi');
                 setSelected(true);
             }
+        });
 
-            //   if( selectedUserEmail === user?.email){
-            //       setSelected(selectedClasses.includes(classData._id))
-            //       console.log('includes', selectedClasses.includes(classData._id))
-            //       console.log('find email',  selectedUserEmail);
-            //   }
-            // console.log('cart',selectedClassesData);
-            // console.log('includes', selectedClasses.includes(classData._id))
-            // selectedEmail.filter(email => email === user.email).length > 0
-            // const selectedClass = selectedClassesData.find(item => item.email === user.email);
 
+        // test here-----------------------
+        fetch(`http://localhost:3000/payments/${_id}`)
+        .then(res => res.json())
+        .then(selectedClassesData => {
+            
+
+            const selectedClassesID = selectedClassesData.map(item => item.selectId); // Extract the selectId from selected classes
+          
+            if (selectedClassesID.includes(classData._id) === true) {
+                // console.log('hi');
+                setPaid(true);
+            }
         });
 
 
 
 
-
-    // const handleAddToSelect = classData => {
-    //     console.log(classData);
-    //     if (user && user.email) {
-    //       const selectItem = { selectId: _id, className, image, price, email: user.email }
-    //       fetch('http://localhost:3000/carts', {
-    //         method: 'POST',
-    //         headers: {
-    //           'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(selectItem)
-    //       })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //           if (data.insertedId) {
-    //             console.log('data inserted',data.insertedId)
-    //             // Check if the class is already selected by the user
-    //             fetch('http://localhost:3000/selectedCard')
-    //               .then(res => res.json())
-    //               .then(selectedClassesData => {
-    //                 const selectedClasses = selectedClassesData.map(item => item.selectId); // Extract the selectId from selected classes
-    //                 console.log('cart',selectedClassesData);
-    //                 if (selectedClasses.includes(classData._id)=== true) {
-    //                     console.log('includes', selectedClasses.includes(classData._id))
-    //                   Swal.fire({
-    //                     position: 'top-end',
-    //                     icon: 'info',
-    //                     title: 'Class already selected',
-    //                     showConfirmButton: false,
-    //                     timer: 1500
-    //                   });
-    //                 } else {
-    //                   // Add classData to selectedClasses
-    //                   // ...
-    //                   Swal.fire({
-    //                     position: 'top-end',
-    //                     icon: 'success',
-    //                     title: 'Selected',
-    //                     showConfirmButton: false,
-    //                     timer: 1500
-    //                   });
-    //                 }
-    //               });
-    //           }
-    //         })
-    //     } else {
-    //       Swal.fire({
-    //         title: 'Please login to order the food',
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#3085d6',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Login now!'
-    //       }).then((result) => {
-    //         if (result.isConfirmed) {
-    //           navigate('/login', { state: { from: location } })
-    //         }
-    //       })
-    //     }
-    //   }
+        // test
 
 
 
-    // test handle select end
+
+
+
+
 
 
     const isUserLoggedIn = !!user;
     const isUserAdminOrInstructor = isAdmin === true || isInstructor === true;
     const isSeatsAvailable = classData.availableSeats > 0;
-    const isButtonDisabled = !isUserLoggedIn || !isSeatsAvailable || isUserAdminOrInstructor || selected;
+    const isButtonDisabled = !isUserLoggedIn || !isSeatsAvailable || isUserAdminOrInstructor || selected || paid;
 
     const getCardBackground = () => {
         if (!isSeatsAvailable) {
@@ -132,7 +82,7 @@ const ClassCard = ({ classData, selectedCart }) => {
 
     //   start-------------------------------------------------
 
-    const { className, image, availableSeats, price, _id } = classData;
+    
     // const { name, image, price, recipe, _id } = item;
 
 
@@ -201,6 +151,7 @@ const ClassCard = ({ classData, selectedCart }) => {
                 <h2 className="card-title">Class Name: {classData.className}</h2>
                 <p className="text-gray-600">Instructor: {classData.instructorName}</p>
                 <p className="text-gray-600">Available Seats: {classData.availableSeats}</p>
+                <p className="text-gray-600">Enrolled Seats: {classData.enroll}</p>
                 <p className="text-gray-600">Price: {classData.price}</p>
                 {isUserLoggedIn ? (
                     <button

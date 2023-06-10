@@ -167,6 +167,23 @@ const AddClass = () => {
           />
           {errors.status && <p className="text-red-500 text-xs mt-1">{errors.status.message}</p>}
         </div>
+        {/* test */}
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="status">
+           Student Enroll
+          </label>
+          <input
+            {...register('enroll', { required: 'Erool is required' })}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100"
+            id="enroll"
+            type="text"
+            defaultValue= '0'
+            readOnly
+          />
+          {errors.status && <p className="text-red-500 text-xs mt-1">{errors.status.message}</p>}
+        </div>
+
+        {/* test */}
         <div className="flex items-center justify-center">
         <button
 className="btn btn-outline btn-success"
