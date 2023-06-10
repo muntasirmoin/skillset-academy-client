@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Navigate, useNavigate } from 'react-router-dom';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Registration = () => {
     const { register, handleSubmit,reset, formState: { errors }, watch  } = useForm();
@@ -150,6 +151,13 @@ const Registration = () => {
             </a>
           </div>
         </form>
+
+          <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="flex items-center justify-center">
+            <p className="text-gray-600 text-sm">Or sign in with</p>
+            </div>
+ <SocialLogin></SocialLogin>
+        </div>
       </div>
     </div>
         </div>
