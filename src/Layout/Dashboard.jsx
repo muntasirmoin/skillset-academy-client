@@ -120,7 +120,7 @@ const Dashboard = () => {
                         transition={{ duration: 3 }}
                     >
                         {/* Your content here */}
-                        <h1 className='text-center'>SkillSet Dashboard</h1>
+                        <h1 className='text-center font-extrabold '>SkillSet Dashboard</h1>
                     </motion.div>
                 </header>
                 <div className=" bg-white border border-green-300">

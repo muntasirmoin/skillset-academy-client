@@ -16,6 +16,7 @@ import MyCart from "../Pages/Dashboard/Student/MyCart";
 import PaymentPage from "../Pages/Dashboard/Student/PaymentPage";
 import MyEnrolledClasses from "../Pages/Dashboard/Student/MyEnrolledClasses";
 import PaymentHistory from "../Pages/Dashboard/Student/PaymentHistory";
+import Update from "../Pages/Dashboard/Instructors/MyClasses/Update";
 
 
   export const router = createBrowserRouter([
@@ -78,6 +79,11 @@ import PaymentHistory from "../Pages/Dashboard/Student/PaymentHistory";
         {
           path: 'paymenthistory',
           element: <PaymentHistory></PaymentHistory>
+        }
+        ,
+        {
+          path: 'update/:id',
+          element: <Update></Update>
         }
       ]
     }

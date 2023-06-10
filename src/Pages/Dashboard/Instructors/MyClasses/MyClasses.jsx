@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const MyClasses = () => {
     const [classes, setClasses] = useState([]);
@@ -7,7 +8,7 @@ const MyClasses = () => {
         fetch(`http://localhost:3000/class`)
         .then(res =>res.json())
         .then(data =>{
-            console.log(data);
+            // console.log(data);
             setClasses(data);
         })
     },[classes])
@@ -23,44 +24,38 @@ const MyClasses = () => {
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
-                    <thead>
+                    <thead className='text-center'>
                         <tr>
-                            <th>#</th>
-                            <th>Class Name</th>
-                            <th>Available Seats</th>
+                            <th className="border px-4 py-2">#</th>
+                            <th className="border px-4 py-2">Class Name</th>
+                            <th className="border px-4 py-2">Available Seats</th>
                             
-                            <th>price</th>
+                            <th className="border px-4 py-2">price</th>
                         
-                            <th>Status</th>
+                            <th className="border px-4 py-2">Status</th>
                             {/* Total Enrolled Students, Feedback & Update button. */}
-                            <th>Enrolled</th>
-                            <th>Feedback</th>
-                            <th>Update</th>
+                            <th className="border px-4 py-2">Enrolled</th>
+                            <th className="border px-4 py-2">Feedback</th>
+                            <th className="border px-4 py-2">Update</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='text-center'>
                         {
                             classes.map((classe, index) => <tr key={classe._id}>
-                                <th>{index + 1}</th>
-                                <td>{classe.className}</td>
-                                <td>{classe.availableSeats}</td>
-                                <td>{classe.price}</td>
-                                <td>{classe.status}</td>
-                                 <td>
-                                 <td>
-                                 {
-                                    // user.role === 'admin' || user.role === 'instructor' ? `${user?.role}` :
-                                    // <>
-                                    // <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"  style={{ fontSize: '24px' }}><GrUserAdmin></GrUserAdmin></button> 
-
-                                    // <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white" style={{ fontSize: '24px' }}><GiTeacher></GiTeacher></button> 
-                                    
-                                    // </>
-                                 }
-                                 </td></td>
-                                 <td></td>
+                                <th className="border px-4 py-2">{index + 1}</th>
+                                <td className="border px-4 py-2">{classe.className}</td>
+                                <td className="border px-4 py-2">{classe.availableSeats}</td>
+                                <td className="border px-4 py-2">{classe.price}</td>
+                                <td className="border px-4 py-2">{classe.status}</td>
+                                <td className="border px-4 py-2">{classe.enroll}</td>
+                              <td className="border px-4 py-2">
+                                {
+                                    classe.status === 'deny' ? classe.feedback : ''
+                                }
+                              </td>
+                              
                
-                                <td><button onClick={() => handleDelete(classe._id)} className="btn btn-ghost bg-red-600  text-white">Update</button></td>
+                                <td className="border px-4 py-2"><Link to={`/dashboard/update/${classe._id}`}><p  className="btn btn-sm btn-outline btn-warning mb-2" style={{ fontSize: '20px' }}>Update</p></Link></td>
                             </tr>)
                         }
                         
