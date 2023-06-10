@@ -12,12 +12,12 @@ const PaymentPage = () => {
    
 
     // test
-    const { id } = useParams();
+    const { selectId } = useParams();
     // console.log(id);
     const [singleCart, setSingleCart] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:3000/cartspay/${id}`)
+        fetch(`http://localhost:3000/cartspay/${selectId}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -38,7 +38,7 @@ const PaymentPage = () => {
         <div>
             <h2 className='text-center'>Payment</h2>
             <Elements stripe={stripePromise}>
-                <CheckoutForm price={price} />
+                <CheckoutForm price={price} singleCart={singleCart} />
             </Elements>
         </div>
     );

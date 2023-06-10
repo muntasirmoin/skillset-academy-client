@@ -2,8 +2,9 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect, useState } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { AuthContext } from '../../../providers/AuthProvider';
+// import './CheckoutFrom.css'
 
-const CheckoutForm = ({price}) => {
+const CheckoutForm = ({price, singleCart}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [axiosSecure] = useAxiosSecure();
@@ -14,12 +15,14 @@ const CheckoutForm = ({price}) => {
     
     const [cardError, setCardError] = useState('');
 
+    // console.log('singlecart', singleCart[0]);
+
     useEffect(() => {
         console.log('inside price', price);
         if (price > 0) {
             axiosSecure.post('/create-payment-intent', { price })
                 .then(res => {
-                    console.log(res.data.clientSecret)
+                    console.log('client secret',res.data.clientSecret)
                     setClientSecret(res.data.clientSecret);
                 })
         }
@@ -77,6 +80,24 @@ const CheckoutForm = ({price}) => {
           if(paymentIntent?.status === 'succeeded'){
             setTransactionId(paymentIntent?.id)
             // const transactionId = paymentIntent?.id;
+            const payment = {
+                selectId: singleCart[0]?.selectId,
+                cartId: singleCart[0]?._id ,
+                email: user?.email,
+                transactionId: paymentIntent?.id,
+                price,
+                className: singleCart[0]?.className,
+                
+                date: new Date(),
+                studentStatus: 'enrolled'
+            }
+            axiosSecure.post('/payments', payment)
+            .then(res => {
+                console.log(res.data)
+                if(res.data.insertedId){
+
+                }
+            })
           }
 
 
