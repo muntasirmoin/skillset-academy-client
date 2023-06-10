@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import FeedbackModal from './FeedbackModal';
 
 
 
@@ -7,6 +8,8 @@ import Swal from 'sweetalert2';
 const ManageClasses = () => {
 
     const [classes, setClasses] = useState([]);
+    const [selectedClassId, setSelectedClassId] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         fetch(`http://localhost:3000/class`)
@@ -64,6 +67,31 @@ const ManageClasses = () => {
     const handleDelete = id => {
 
     }
+
+
+    // test
+
+    // const handleOpenModal = ClassId => {
+    //     setSelectedClassId(ClassId);
+    //     setIsModalOpen(true);
+    // };
+    const handleOpenModal = (ClassId) => {
+        setSelectedClassId(ClassId);
+        setIsModalOpen(true);
+        console.log(ClassId, isModalOpen);
+      };
+      
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleSendFeedback = classe => {
+        handleOpenModal(classe._id);
+        setSelectedClassId(classe._id);
+        // console.log(classe._id);
+    };
+    // test
     // Class Image, Class name, Instructor name, Instructor email, 
     // Available seats, Price, Status(pending/approved/denied) 3 buttons( Approve, Deny and send feedback).
     return (
@@ -100,7 +128,7 @@ const ManageClasses = () => {
                                 <td>{classe.availableSeats}</td>
                                 <td>{classe.price}</td>
                                 <td className='uppercase text-green-400 font-bold'>{classe.status}</td>
-                                <td>
+                                
                                     <td>
                                         {
                                             classe.status === 'approve' || classe.status === 'deny' ? <>
@@ -121,8 +149,8 @@ const ManageClasses = () => {
 
                                                 </>
                                         }
-                                    </td></td>
-                                <td> <button onClick={() => handleFeedBack(user)} className="btn btn-sm btn-outline btn-info" style={{ fontSize: '10px' }}>feedback</button> </td>
+                                    </td>
+                                <td> <button onClick={() => handleSendFeedback(classe)} className="btn btn-sm btn-outline btn-info" style={{ fontSize: '10px' }}>feedback</button> </td>
 
 
                             </tr>)
@@ -130,8 +158,18 @@ const ManageClasses = () => {
 
 
                     </tbody>
+         
                 </table>
             </div>
+
+
+            {isModalOpen && (
+        <FeedbackModal
+        selectedClassId={selectedClassId}
+          closeModal={handleCloseModal}
+        />
+      )}
+        
         </div>
     );
 };
