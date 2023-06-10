@@ -1,6 +1,7 @@
 import React from 'react';
 import useCart from '../../../hooks/useCart';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 const MyCart = () => {
@@ -72,7 +73,7 @@ const MyCart = () => {
                             
                                 <td>$ {classe.price}</td>
                                
-                                <td> <button onClick={() => handleFeedBack(user)} className="btn btn-sm btn-outline btn-success" style={{ fontSize: '10px' }}>pay</button> </td>
+                                <td> <Link to='/dashboard/payment'><button  className="btn btn-sm btn-outline btn-success" style={{ fontSize: '10px' }}>pay</button></Link>  </td>
                                 
                                 <td> <button onClick={() => handleDelete(classe)} className="btn btn-sm btn-outline btn-error" style={{ fontSize: '10px' }}>Delete</button> </td>
                        

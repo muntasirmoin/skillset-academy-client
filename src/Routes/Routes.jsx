@@ -13,6 +13,7 @@ import MyClasses from "../Pages/Dashboard/Instructors/MyClasses/MyClasses";
 import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import ClassesPage from "../Pages/ClassesPage/ClassesPage";
 import MyCart from "../Pages/Dashboard/Student/MyCart";
+import PaymentPage from "../Pages/Dashboard/Student/PaymentPage";
 
 
   export const router = createBrowserRouter([
@@ -63,6 +64,10 @@ import MyCart from "../Pages/Dashboard/Student/MyCart";
         {
           path: 'mycart',
           element: <MyCart></MyCart>
+        },
+        {
+          path: 'payment',
+          element: <PaymentPage></PaymentPage>
         }
       ]
     }
