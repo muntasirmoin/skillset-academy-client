@@ -24,6 +24,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
