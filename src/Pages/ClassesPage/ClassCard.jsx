@@ -154,7 +154,7 @@ const ClassCard = ({ classData, selectedCart }) => {
     const handleAddToSelect = classData => {
         console.log(classData);
         if (user && user.email) {
-            const selectItem = { selectId: _id, className, image, price, email: user.email }
+            const selectItem = { selectId: _id, className, image, price, email: user.email,availableSeats}
             fetch('http://localhost:3000/carts', {
                 method: 'POST',
                 headers: {
