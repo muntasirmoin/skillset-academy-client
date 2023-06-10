@@ -66,7 +66,7 @@ import PaymentPage from "../Pages/Dashboard/Student/PaymentPage";
           element: <MyCart></MyCart>
         },
         {
-          path: 'payment',
+          path: 'payment/:id',
           element: <PaymentPage></PaymentPage>
         }
       ]

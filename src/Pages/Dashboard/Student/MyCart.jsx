@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 
 const MyCart = () => {
     const [cart, refetch] = useCart();
-    console.log('cart',cart);
+    console.log('cart', cart);
     const total = cart?.reduce((sum, item) => parseFloat(item.price) + sum, 0);
 
-    const handleDelete = (item) =>{
+    const handleDelete = (item) => {
         Swal.fire({
             title: 'Are you sure to delete this selected class?',
             text: "You won't be able to revert this!",
@@ -18,24 +18,24 @@ const MyCart = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`http://localhost:3000/carts/${item._id}`, {
-                method: 'DELETE'
-              })
-              .then(res => res.json())
-              .then(data => {
-                if(data.deletedCount > 0){
-                    refetch();
-                    Swal.fire(
-                        'Deleted!',
-                        'Your Selected class has been deleted.',
-                        'success'
-                      )
-                }
-              })
+                fetch(`http://localhost:3000/carts/${item._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Selected class has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
             }
-          })
+        })
     }
 
 
@@ -43,24 +43,24 @@ const MyCart = () => {
 
     return (
         <div>
-             <h3 className="text-3xl font-semibold my-4 text-center">Selected Class: {cart.length} </h3>
-             <h4 className='font-semi-bold'>Total price:$ {total}</h4>
-             {/* <button className='btn btn-outline btn-success'>pay</button> */}
+            <h3 className="text-3xl font-semibold my-4 text-center">Selected Class: {cart.length} </h3>
+            <h4 className='font-semi-bold'>Total price:$ {total}</h4>
+            {/* <button className='btn btn-outline btn-success'>pay</button> */}
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead>
-                        
+
                         <tr>
                             <th>#</th>
                             <th>Image</th>
                             <th>Class Name</th>
-                        
-                          
-                             <th>price</th>
-                             <th>pay</th>
-                             <th>Delete</th>
-                         
+
+
+                            <th>price</th>
+                            <th>pay</th>
+                            <th>Delete</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -69,20 +69,24 @@ const MyCart = () => {
                                 <th>{index + 1}</th>
                                 <td><img src="" alt="image" /></td>
                                 <td>{classe.className}</td>
-                              
-                            
+
+
                                 <td>$ {classe.price}</td>
-                               
-                                <td> <Link to='/dashboard/payment'><button  className="btn btn-sm btn-outline btn-success" style={{ fontSize: '10px' }}>pay</button></Link>  </td>
-                                
+
+                                <td>
+                                    <Link to={`/dashboard/payment/${classe._id}`}>
+                                        <button className="btn btn-sm btn-outline btn-success" style={{ fontSize: '10px' }}>pay</button>
+                                    </Link>
+                                </td>
+
                                 <td> <button onClick={() => handleDelete(classe)} className="btn btn-sm btn-outline btn-error" style={{ fontSize: '10px' }}>Delete</button> </td>
-                       
-               
-                             
+
+
+
                             </tr>)
                         }
-                        
-                        
+
+
                     </tbody>
                 </table>
             </div>
