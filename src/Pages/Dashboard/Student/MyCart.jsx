@@ -42,9 +42,9 @@ const MyCart = () => {
 
     return (
         <div>
-             <h3 className="text-3xl font-semibold my-4">Selected Class: {cart.length}</h3>
-             <h4>Total price:$ {total}</h4>
-             <button className='btn btn-outline btn-success'>pay</button>
+             <h3 className="text-3xl font-semibold my-4 text-center">Selected Class: {cart.length} </h3>
+             <h4 className='font-semi-bold'>Total price:$ {total}</h4>
+             {/* <button className='btn btn-outline btn-success'>pay</button> */}
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}

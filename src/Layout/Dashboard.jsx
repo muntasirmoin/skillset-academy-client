@@ -71,11 +71,17 @@ const Dashboard = () => {
                         {!isAdmin && !isInstructor && (
                             <>
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
-                                    <NavLink to="/dashboard/student" activeClassName="font-bold">
+                                    <NavLink to="/dashboard" activeClassName="font-bold">
                                         Student Dashboard
                                     </NavLink>
                                 </li>
                                 <hr className='text-red-500' />
+
+                                <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
+                                    <NavLink to="/dashboard/mycart" activeClassName="font-bold">
+                                    My Selected Classes
+                                    </NavLink>
+                                </li>
                                 {/* Add more student-specific links */}
                             </>
                         )}
