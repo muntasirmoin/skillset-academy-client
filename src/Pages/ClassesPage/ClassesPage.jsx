@@ -3,33 +3,33 @@ import ClassCard from './ClassCard';
 
 const ClassesPage = () => {
 
-    const [classes, setClasses] = useState([]);
-   
-    useEffect(()=>{
-        fetch(`http://localhost:3000/class/approve`)
-        .then(res =>res.json())
-        .then(data =>{
-            // console.log(data);
-            setClasses(data);
-        })
-    },[classes])
+  const [classes, setClasses] = useState([]);
 
-    
-    return (
-        <div>
-           
+  useEffect(() => {
+    fetch(`http://localhost:3000/class/approve`)
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        setClasses(data);
+      })
+  }, [classes])
 
-            <div>
-      <h2 className='text-center'>Approved Classes</h2>
-      <div className="grid grid-cols-3 gap-4">
-        {classes.map((classData) => (
-          <ClassCard key={classData._id} classData={classData}/>
-        ))}
-      </div>
-    </div>
-          
+
+  return (
+    <div>
+
+
+      <div>
+        <h2 className='text-center'>Approved Classes</h2>
+        <div className="grid grid-cols-3 gap-4">
+          {classes.map((classData) => (
+            <ClassCard key={classData._id} classData={classData} />
+          ))}
         </div>
-    );
+      </div>
+
+    </div>
+  );
 };
 
 export default ClassesPage;

@@ -17,6 +17,7 @@ import PaymentPage from "../Pages/Dashboard/Student/PaymentPage";
 import MyEnrolledClasses from "../Pages/Dashboard/Student/MyEnrolledClasses";
 import PaymentHistory from "../Pages/Dashboard/Student/PaymentHistory";
 import Update from "../Pages/Dashboard/Instructors/MyClasses/Update";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
   export const router = createBrowserRouter([
@@ -26,19 +27,23 @@ import Update from "../Pages/Dashboard/Instructors/MyClasses/Update";
       children: [
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            errorElement: <ErrorPage></ErrorPage>
         },
         {
             path: 'login',
-            element: <Login></Login>
+            element: <Login></Login>,
+            errorElement: <ErrorPage></ErrorPage>
         },
         {
             path: 'registration',
-            element: <Registration></Registration>
+            element: <Registration></Registration>,
+            errorElement: <ErrorPage></ErrorPage>
         },
         {
           path: 'approveclass',
-          element: <ClassesPage></ClassesPage>
+          element: <ClassesPage></ClassesPage>,
+          errorElement: <ErrorPage></ErrorPage>
         }
        
       ]
@@ -47,26 +52,32 @@ import Update from "../Pages/Dashboard/Instructors/MyClasses/Update";
     {
       path: 'dashboard',
       element: <Dashboard></Dashboard>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path : 'allusers',
-          element: <AllUsers></AllUsers>
+          element: <AllUsers></AllUsers>,
+          errorElement: <ErrorPage></ErrorPage>
         },
         {
           path: 'addclass',
-          element :<AddClass></AddClass>
+          element :<AddClass></AddClass>,
+          errorElement: <ErrorPage></ErrorPage>
         },
         {
           path: 'myclasses',
-          element: <MyClasses></MyClasses>
+          element: <MyClasses></MyClasses>,
+          errorElement: <ErrorPage></ErrorPage>
         },
         {
           path: 'manageclasses',
-          element: <ManageClasses></ManageClasses>
+          element: <ManageClasses></ManageClasses>,
+          errorElement: <ErrorPage></ErrorPage>
         },
         {
           path: 'mycart',
-          element: <MyCart></MyCart>
+          element: <MyCart></MyCart>,
+          errorElement: <ErrorPage></ErrorPage>
         },
         {
           path: 'payment/:selectId',
@@ -74,16 +85,19 @@ import Update from "../Pages/Dashboard/Instructors/MyClasses/Update";
         },
         {
           path: 'myenroll',
-          element: <MyEnrolledClasses></MyEnrolledClasses>
+          element: <MyEnrolledClasses></MyEnrolledClasses>,
+          errorElement: <ErrorPage></ErrorPage>
         },
         {
           path: 'paymenthistory',
-          element: <PaymentHistory></PaymentHistory>
+          element: <PaymentHistory></PaymentHistory>,
+          errorElement: <ErrorPage></ErrorPage>
         }
         ,
         {
           path: 'update/:id',
-          element: <Update></Update>
+          element: <Update></Update>,
+          errorElement: <ErrorPage></ErrorPage>
         }
       ]
     }

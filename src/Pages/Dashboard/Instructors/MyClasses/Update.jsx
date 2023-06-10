@@ -14,7 +14,7 @@ const navigate = useNavigate();
 const from = '/dashboard';
 
 useEffect(()=>{
-    fetch(`http://localhost:3000/class/${id}`)
+    fetch(`http://localhost:3000/classed/${id}`)
     .then(res =>res.json())
     .then(data =>{
         // console.log(data);
