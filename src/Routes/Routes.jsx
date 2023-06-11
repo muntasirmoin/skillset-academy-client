@@ -19,6 +19,7 @@ import PaymentHistory from "../Pages/Dashboard/Student/PaymentHistory";
 import Update from "../Pages/Dashboard/Instructors/MyClasses/Update";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import InstructorsPage from "../Pages/Home/InstructorsPage/InstructorsPage";
+import DashboardHome from "../Pages/Dashboard/DashboardHome";
 
 
   export const router = createBrowserRouter([
@@ -61,6 +62,11 @@ import InstructorsPage from "../Pages/Home/InstructorsPage/InstructorsPage";
       element: <Dashboard></Dashboard>,
       errorElement: <ErrorPage></ErrorPage>,
       children: [
+        {
+          path : 'counter',
+          element: <DashboardHome></DashboardHome>,
+          errorElement: <ErrorPage></ErrorPage>
+        },
         {
           path : 'allusers',
           element: <AllUsers></AllUsers>,

@@ -18,8 +18,10 @@ const PopularClassesSection = () => {
 
 
       <div>
-        <h2 className='text-center'>Popular Classes</h2>
-        <div className="grid grid-cols-3 gap-4">
+        {/* <h2 className='text-center'>Popular Classes</h2> */}
+        <h2 className="text-4xl text-center text-green-400 mb-6 font-bold sm:text-5xl md:text-6xl">Trending Courses</h2>
+        {/* <hr className='text-red-400 mt-4 mb-2 h-2' /> */}
+        <div className="grid grid-cols-3 gap-4 border-2 border-gray-300  p-2">
           {classes.map((classData) => (
             <PopularClassesSectionCard key={classData._id} classData={classData} />
           ))}

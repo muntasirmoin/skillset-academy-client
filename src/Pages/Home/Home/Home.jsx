@@ -7,7 +7,7 @@ import PopularInstructorsSection from './PopularInstructorsSection/PopularInstru
 const Home = () => {
     return (
         <div>
-            <h2>Home</h2>
+            
             <TopSlider></TopSlider>
             <PopularClassesSection></PopularClassesSection>
             <PopularInstructorsSection></PopularInstructorsSection>

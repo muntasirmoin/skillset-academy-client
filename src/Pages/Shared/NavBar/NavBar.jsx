@@ -14,7 +14,12 @@ const NavBar = ({isLoggedIn,userProfilePicture}) => {
     return (
         <nav className="bg-gray-900 text-gray-300 py-4">
       <div className="container mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between">
-        <div className="text-xl font-bold">Website Name</div>
+      <div className="mb-6 md:mb-0">
+              <a  className="flex items-center">
+                  <img src="https://i.ibb.co/6DbzzTn/istockphoto-953461340-612x612.jpg" className="h-10 mr-3 w-10 rounded-full" alt="Skill SetLogo" />
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SkillSet Academy</span>
+              </a>
+          </div>
         <ul className="flex space-x-4">
           <li>
             <Link to='/'><a href="#" className="hover:text-white">Home</a></Link>
@@ -31,7 +36,7 @@ const NavBar = ({isLoggedIn,userProfilePicture}) => {
           {user ? (
             <li className="flex items-center space-x-2">
               {/* dashboard */}
-              <Link to='/dashboard'><a href="#" className="hover:text-white">Dashboard</a></Link>
+              <Link to='/dashboard/counter'><a href="#" className="hover:text-white">Dashboard</a></Link>
               <img
                 src={user?.photoURL}
                 alt="User Profile"

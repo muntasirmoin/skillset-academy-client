@@ -6,10 +6,21 @@ import { MdManageAccounts, MdOutlineManageAccounts } from 'react-icons/md';
 import { SiGoogleclassroom } from 'react-icons/si';
 import { BsDatabaseAdd } from 'react-icons/bs';
 import { FaSchool, FaCheckCircle } from 'react-icons/fa';
+import { AuthContext } from '../providers/AuthProvider';
+import { useContext } from 'react';
+import { AiOutlineLogout } from 'react-icons/ai';
+import { TiArrowBackOutline } from 'react-icons/ti';
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
+    const { user, logOut } = useContext(AuthContext);
+    const profileImage = user?.photoURL;
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
     return (
         <div className="flex mb-5">
             <div className="w-1/4 bg-gray-200 border-2 border-green-400">
@@ -18,7 +29,7 @@ const Dashboard = () => {
                         {isAdmin && (
                             <>
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
-                                    <NavLink to="/dashboard" activeClassName="font-bold" >
+                                    <NavLink to="/dashboard/counter" activeClassName="font-bold" >
                                         Admin Dashboard
                                     </NavLink>
 
@@ -46,22 +57,22 @@ const Dashboard = () => {
                         {isInstructor && (
                             <>
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
-                                    <NavLink to="/dashboard" activeClassName="font-bold">
+                                    <NavLink to="/dashboard/counter" activeClassName="font-bold">
                                         Instructor
                                     </NavLink>
                                 </li>
                                 <hr className='text-red-500' />
                                 <li className='hover:text-green-400 font-bold mb-2'>
-                                <NavLink to="/dashboard/addclass" activeClassName="font-bold">
+                                    <NavLink to="/dashboard/addclass" activeClassName="font-bold">
                                         <BsDatabaseAdd size={24} className="mr-2" style={{ display: 'inline-block' }} />
-                                        <span className='text-center' style={{ display: 'inline-block'  }}>Add Class</span>
+                                        <span className='text-center' style={{ display: 'inline-block' }}>Add Class</span>
                                     </NavLink>
                                 </li>
 
                                 <li className='hover:text-green-400 font-bold mb-2'>
-                                <NavLink to="/dashboard/myclasses" activeClassName="font-bold">
+                                    <NavLink to="/dashboard/myclasses" activeClassName="font-bold">
                                         <FaSchool size={24} className="mr-2" style={{ display: 'inline-block' }} />
-                                        <span className='text-center' style={{ display: 'inline-block'  }}>My Classes</span>
+                                        <span className='text-center' style={{ display: 'inline-block' }}>My Classes</span>
                                     </NavLink>
                                 </li>
                                 {/* Add more instructor-specific links My Classes */}
@@ -71,7 +82,7 @@ const Dashboard = () => {
                         {!isAdmin && !isInstructor && (
                             <>
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
-                                    <NavLink to="/dashboard" activeClassName="font-bold">
+                                    <NavLink to="/dashboard/counter" activeClassName="font-bold">
                                         Student Dashboard
                                     </NavLink>
                                 </li>
@@ -79,34 +90,39 @@ const Dashboard = () => {
 
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
                                     <NavLink to="/dashboard/mycart" activeClassName="font-bold">
-                                    My Selected Classes
+                                        My Selected Classes
                                     </NavLink>
                                 </li>
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
                                     <NavLink to="/dashboard/myenroll" activeClassName="font-bold">
-                                    My Enroll Classes
+                                        My Enroll Classes
                                     </NavLink>
                                 </li>
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
                                     <NavLink to="/dashboard/paymenthistory" activeClassName="font-bold">
-                                  Payment History
+                                        Payment History
                                     </NavLink>
                                 </li>
                                 {/* Add more student-specific links */}
                             </>
                         )}
+                        <hr className='text-green-500' />
+                        <li>
+                            <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
+                                <NavLink to="/" activeClassName="font-bold">
+                                 <TiArrowBackOutline size={24} className="mr-2 text-green-400" style={{ display: 'inline-block' }}></TiArrowBackOutline>Home 
+                                </NavLink>
+                            </li>
+                        </li>
 
-                        {/* <li>
-              <NavLink to="/dashboard/home" activeClassName="font-bold">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/profile" activeClassName="font-bold">
-                Profile
-              </NavLink>
-            </li> */}
                         {/* Add more common links */}
+                        <hr className='text-red-500' />
+                        <li>
+                            <button onClick={handleLogOut} className=" btn btn-sm btn-outline btn-warning" style={{ fontSize: '20px' }}>
+                                <span className='text-red-400'>Logout</span> <AiOutlineLogout size={24} className="mr-2 text-red-400" style={{ display: 'inline-block' }}></AiOutlineLogout>
+                            </button>
+                        </li>
+
                     </ul>
                 </nav>
             </div>

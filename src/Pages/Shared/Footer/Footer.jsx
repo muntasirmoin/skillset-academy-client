@@ -1,4 +1,5 @@
 import React from 'react';
+// https://i.ibb.co/6DbzzTn/istockphoto-953461340-612x612.jpg logo
 
 const footer = () => {
     return (
@@ -7,8 +8,8 @@ const footer = () => {
     <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-              <a href="https://flowbite.com/" className="flex items-center">
-                  <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="FlowBite Logo" />
+              <a  className="flex items-center">
+                  <img src="https://i.ibb.co/6DbzzTn/istockphoto-953461340-612x612.jpg" className="h-12 mr-3 w-12 rounded-full" alt="Skill SetLogo" />
                   <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SkillSet Academy</span>
               </a>
           </div>
