@@ -44,7 +44,7 @@ const AddClass = () => {
         if (imgResponse.success) {
           const imgURL = imgResponse.data.display_url;
           const { availableSeats, classImage, className, enroll, instructorName, instructorEmail, price, status } = data;
-          const addIteam = { availableSeats, classImage, classImageUrl: imgURL, className, enroll, instructorName, instructorEmail, price: parseFloat(price), status }
+          const addIteam = { availableSeats, classImage, classImageUrl: imgURL, className, enroll: parseFloat(enroll), instructorName, instructorEmail, price: parseFloat(price), status }
           console.log('add', addIteam);
 
           axiosSecure.post('/class', addIteam)
@@ -216,8 +216,8 @@ const AddClass = () => {
                   {...register('enroll', { required: 'Erool is required' })}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100"
                   id="enroll"
-                  type="text"
-                  defaultValue='0'
+                  type="number"
+                  defaultValue= {0}
                   readOnly
                 />
                 {errors.status && <p className="text-red-500 text-xs mt-1">{errors.status.message}</p>}
