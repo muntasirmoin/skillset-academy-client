@@ -4,48 +4,88 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../../providers/AuthProvider';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
+
 
 const AddClass = () => {
 
+ const [axiosSecure] = useAxiosSecure();
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
+  console.log(img_hosting_url)
 
   const instructorEmail = user?.email;
   const instructorName = user?.displayName;
+  // image upload
+
+  // console.log(img_hosting_token);
+
+
+  // 
 
   const onSubmit = (data) => {
     // Handle class creation logic
-
+    // console.log(img_hosting_token);
 
     console.log(data);
+    const formData = new FormData();
+    formData.append('image', data?.image[0])
+    console.log(formData);
 
-    // 
-    fetch(`http://localhost:3000/class`, {
+    fetch(img_hosting_url, {
       method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        if (data.insertedId) {
-          reset();
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Class created successfully!',
-            showConfirmButton: false,
-            timer: 1500
-          });
+      body: formData
+    }).then(res => res.json())
+      .then(imgResponse => {
+        // console.log('res', imgResponse);
+        if (imgResponse.success) {
+          const imgURL = imgResponse.data.display_url;
+          const { availableSeats, classImage, className, enroll, instructorName, instructorEmail, price, status } = data;
+          const addIteam = { availableSeats, classImage, classImageUrl: imgURL, className, enroll, instructorName, instructorEmail, price: parseFloat(price), status }
+          console.log('add', addIteam);
 
+          axiosSecure.post('/class', addIteam)
+          .then(data => {
+            console.log('after posting new class item', data.data)
+            if(data.data.insertedId){
+                reset();
+                Swal.fire(`Class Name: ${className} added!`)
+            }
+        })
+
+          console.log(data, imgURL);
         }
       })
 
+    // main fatch
+    // fetch(`http://localhost:3000/class`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   },
+    //   body: JSON.stringify(data)
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     if (data.insertedId) {
+    //       reset();
+    //       Swal.fire({
+    //         position: 'top-end',
+    //         icon: 'success',
+    //         title: 'Class created successfully!',
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //       });
 
-    // 
+    //     }
+    //   })
+
+
+    // main fatch
 
     // You can make a request to your backend API here to create the class
 
@@ -82,7 +122,7 @@ const AddClass = () => {
                   Class Image
                 </label>
                 <input
-                  {...register('classImage')}
+                  {...register("image", { required: true })}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="classImage"
                   type="file"

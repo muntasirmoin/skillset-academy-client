@@ -146,7 +146,7 @@ const ClassCard = ({ classData, selectedCart }) => {
     //  main handle end
     return (
         <div className={`card ${getCardBackground()}`}>
-            <img src={classData?.image} alt='image' className="w-full h-40 object-cover" />
+            <img src={classData?.classImageUrl} alt='image' className="w-full h-40" />
             <div className="card-body">
                 <h2 className="card-title">Class Name: {classData.className}</h2>
                 <p className="text-gray-600">Instructor: {classData.instructorName}</p>
