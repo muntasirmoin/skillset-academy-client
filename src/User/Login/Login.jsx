@@ -4,11 +4,14 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { HiEye, HiEyeOff } from 'react-icons/hi';
 
 const Login = () => {
 
 
+
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [showPassword, setShowPassword] = useState(false);
 
     // 
     const [disabled, setDisabled] = useState(true);
@@ -58,7 +61,7 @@ const Login = () => {
             />
             {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
           </div>
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
               Password
             </label>
@@ -72,7 +75,28 @@ const Login = () => {
               />
               {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
             </div>
-          </div>
+          </div> */}
+          <div className="mb-6">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+    Password
+  </label>
+  <div className="relative">
+    <input
+      {...register('password', { required: 'Password is required', minLength: { value: 6, message: 'Password must be at least 6 characters' } })}
+      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      id="password"
+      type={showPassword ? 'text' : 'password'}
+      placeholder="Password"
+    />
+    <div
+      className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+      {showPassword ? <HiEyeOff /> : <HiEye />}
+    </div>
+  </div>
+  {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
+</div>
           <div className="flex items-center justify-between mb-6">
             <button
               className="bg-blue-500 text-green-500 hover:bg-blue-900  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

@@ -20,8 +20,10 @@ const NavBar = ({isLoggedIn,userProfilePicture}) => {
             <Link to='/'><a href="#" className="hover:text-white">Home</a></Link>
             
           </li>
+          {/* instructorAll */}
           <li>
-            <a href="#" className="hover:text-white">Instructors</a>
+            <Link to='instructorAll'><a href="#" className="hover:text-white">Instructors</a></Link>
+            
           </li>
           <li>
           <Link to='approveclass'> <a href="#" className="hover:text-white">Classes</a></Link> 

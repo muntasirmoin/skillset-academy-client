@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PopularInstructorsSectionCard = ({classData}) => {
+const InstructorsPageCard = ({classData}) => {
     return (
         <div className={`card`}>
         <img src={classData?.photoURL} alt='image' className="w-full h-40" />
@@ -14,4 +14,4 @@ const PopularInstructorsSectionCard = ({classData}) => {
     );
 };
 
-export default PopularInstructorsSectionCard;
+export default InstructorsPageCard;

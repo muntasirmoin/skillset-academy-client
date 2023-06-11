@@ -18,6 +18,7 @@ import MyEnrolledClasses from "../Pages/Dashboard/Student/MyEnrolledClasses";
 import PaymentHistory from "../Pages/Dashboard/Student/PaymentHistory";
 import Update from "../Pages/Dashboard/Instructors/MyClasses/Update";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import InstructorsPage from "../Pages/Home/InstructorsPage/InstructorsPage";
 
 
   export const router = createBrowserRouter([
@@ -44,6 +45,11 @@ import ErrorPage from "../ErrorPage/ErrorPage";
         {
           path: 'approveclass',
           element: <ClassesPage></ClassesPage>,
+          errorElement: <ErrorPage></ErrorPage>
+        },
+        {
+          path: 'instructorAll',
+          element: <InstructorsPage></InstructorsPage>,
           errorElement: <ErrorPage></ErrorPage>
         }
        
