@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../../providers/AuthProvider';
 
 const MyClasses = () => {
     const [classes, setClasses] = useState([]);
+    const { user } = useContext(AuthContext);
    
     useEffect(()=>{
-        fetch(`http://localhost:3000/class`)
+        fetch(`http://localhost:3000/class/${user?.email}`)
         .then(res =>res.json())
         .then(data =>{
             // console.log(data);

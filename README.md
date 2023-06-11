@@ -34,21 +34,18 @@ Minimum 5 points of your website features
 - Email & Password Login
 - Registration Page [here anyone can register his account]
 
-# Used packages/ technology name
+## Used packages/ technology name
 - "@stripe/react-stripe-js"
 - "@tanstack/react-query"
 - "axios"
 - "firebase"
--  "framer-motion"
-        
+- "framer-motion"     
 - "react": 
 - "react-dom"
-- "react-fast-marquee"
-       
+- "react-fast-marquee"    
 - "react-helmet-async"
 - "react-hook-form"
-- "react-icons"
-        
+- "react-icons"     
 - "react-modal"
 - "react-query"
 - "react-responsive-carousel"
