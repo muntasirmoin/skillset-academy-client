@@ -52,34 +52,34 @@ const MyCart = () => {
                     <thead>
 
                         <tr>
-                            <th>#</th>
-                            <th>Image</th>
-                            <th>Class Name</th>
+                            <th className='text-center border px-4 py-2'>#</th>
+                            {/* <th className='text-center border px-4 py-2'>Image</th> */}
+                            <th className='text-center border px-4 py-2'>Class Name</th>
 
 
-                            <th>price</th>
-                            <th>pay</th>
-                            <th>Delete</th>
+                            <th className='text-center border px-4 py-2'>price</th>
+                            <th className='text-center border px-4 py-2'>pay</th>
+                            <th className='text-center border px-4 py-2'>Delete</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         {
                             cart.map((classe, index) => <tr key={classe._id}>
-                                <th>{index + 1}</th>
-                                <td><img src="" alt="image" /></td>
-                                <td>{classe.className}</td>
+                                <th className='text-center border px-4 py-2'>{index + 1}</th>
+                                {/* <td className='text-center border px-4 py-2'><img src={classe.classImageUrl} alt="image" /></td> */}
+                                <td className='text-center border px-4 py-2'>{classe.className}</td>
 
 
-                                <td>$ {classe.price}</td>
+                                <td className='text-center border px-4 py-2'>$ {classe.price}</td>
 
-                                <td>
+                                <td className='text-center border px-4 py-2'>
                                     <Link to={`/dashboard/payment/${classe.selectId}`}>
                                         <button className="btn btn-sm btn-outline btn-success" style={{ fontSize: '10px' }}>pay</button>
                                     </Link>
                                 </td>
 
-                                <td> <button onClick={() => handleDelete(classe)} className="btn btn-sm btn-outline btn-error" style={{ fontSize: '10px' }}>Delete</button> </td>
+                                <td className='text-center border px-4 py-2'> <button onClick={() => handleDelete(classe)} className="btn btn-sm btn-outline btn-error" style={{ fontSize: '10px' }}>Delete</button> </td>
 
 
 

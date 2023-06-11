@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect, useState } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { AuthContext } from '../../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 // import './CheckoutFrom.css'
 
 const CheckoutForm = ({ price, singleCart }) => {
@@ -80,6 +81,15 @@ const CheckoutForm = ({ price, singleCart }) => {
         if (paymentIntent?.status === 'succeeded') {
             setTransactionId(paymentIntent?.id)
             // const transactionId = paymentIntent?.id;
+            Swal.fire({
+                title: `Payment Successfully Done! $ ${price}`,
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
             const payment = {
                 selectId: singleCart[0]?.selectId,
                 cartId: singleCart[0]?._id,
@@ -97,7 +107,7 @@ const CheckoutForm = ({ price, singleCart }) => {
                 .then(res => {
                     console.log(res.data)
                     if (res.data.insertedId) {
-
+                        
                     }
                 })
         }

@@ -103,33 +103,33 @@ const ManageClasses = () => {
                     <thead>
 
                         <tr>
-                            <th>#</th>
-                            <th>Image</th>
-                            <th>Class Name</th>
-                            <th>Instructor Name</th>
-                            <th>Instructor Email</th>
-                            <th>Available Seats</th>
-                            <th>price</th>
-                            <th>Status</th>
-                            <th className='text-center'>Approve / Deny</th>
+                            <th className='text-center border px-4 py-2'>#</th>
+                            <th className='text-center border px-4 py-2'>Image</th>
+                            <th className='text-center border px-4 py-2'>Class Name</th>
+                            <th className='text-center border px-4 py-2'>Instructor Name</th>
+                            <th className='text-center border px-4 py-2'>Instructor Email</th>
+                            <th className='text-center border px-4 py-2'>Available Seats</th>
+                            <th className='text-center border px-4 py-2'>price</th>
+                            <th className='text-center border px-4 py-2'>Status</th>
+                            <th className='text-center border px-4 py-2'>Approve / Deny</th>
 
 
-                            <th>FeedBack</th>
+                            <th className='text-center border px-4 py-2'>FeedBack</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             classes.map((classe, index) => <tr key={classe._id}>
-                                <th>{index + 1}</th>
-                                <td><img src="" alt="image" /></td>
-                                <td>{classe.className}</td>
-                                <td>{classe.instructorName}</td>
-                                <td className='text-sm'>{classe.instructorEmail}</td>
-                                <td>{classe.availableSeats}</td>
-                                <td>{classe.price}</td>
-                                <td className='uppercase text-green-400 font-bold'>{classe.status}</td>
+                                <th className='text-center border px-4 py-2'>{index + 1}</th>
+                                <td className='text-center border px-4 py-2'><img src="" alt="image" /></td>
+                                <td className='text-center border px-4 py-2'>{classe.className}</td>
+                                <td className='text-center border px-4 py-2'>{classe.instructorName}</td>
+                                <td className='text-sm text-center border px-4 py-2'>{classe.instructorEmail}</td>
+                                <td className='text-center border px-4 py-2'>{classe.availableSeats}</td>
+                                <td className='text-center border px-4 py-2'>{classe.price}</td>
+                                <td className='text-center border px-4 py-2 uppercase text-green-400 font-bold'>{classe.status}</td>
                                 
-                                    <td>
+                                    <td className='text-center border px-4 py-2'>
                                         {
                                             classe.status === 'approve' || classe.status === 'deny' ? <>
                                                 <div className='border-2 border-red-300 border-double p-1'>
@@ -150,7 +150,7 @@ const ManageClasses = () => {
                                                 </>
                                         }
                                     </td>
-                                <td> <button onClick={() => handleSendFeedback(classe)} className="btn btn-sm btn-outline btn-info" style={{ fontSize: '10px' }}>feedback</button> </td>
+                                <td className='text-center border px-4 py-2'> <button onClick={() => handleSendFeedback(classe)} className="btn btn-sm btn-outline btn-info" style={{ fontSize: '10px' }}>feedback</button> </td>
 
 
                             </tr>)

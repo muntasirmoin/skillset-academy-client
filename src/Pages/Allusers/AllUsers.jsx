@@ -77,13 +77,13 @@ const AllUsers = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th className='text-center border px-4 py-2'>#</th>
+                            <th className='text-center border px-4 py-2'>Name</th>
+                            <th className='text-center border px-4 py-2'>Email</th>
 
-                            <th>Role: Admin / instructor</th>
+                            <th className='text-center border px-4 py-2'>Role: Admin / instructor</th>
 
-                            {/* <th>Admin</th> */}
+                            <th className='text-center border px-4 py-2'>Role</th>
                             {/* <th>Instructor</th> */}
                             {/* <th>Action</th> */}
                         </tr>
@@ -91,11 +91,11 @@ const AllUsers = () => {
                     <tbody>
                         {
                             users.map((user, index) => <tr key={user._id}>
-                                <th>{index + 1}</th>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
+                                <th className='text-center border px-4 py-2'>{index + 1}</th>
+                                <td className='text-center border px-4 py-2'>{user.name}</td>
+                                <td className='text-center border px-4 py-2'>{user.email}</td>
                                 {/*  */}
-                                <td>
+                                <td className='text-center border px-4 py-2'>
                                     <td>
                                         {
                                             user.role === 'admin' || user.role === 'instructor' ? <> <span className='uppercase text-green-400 font-bold'>{`${user?.role} `}</span>
@@ -114,6 +114,11 @@ const AllUsers = () => {
                                                 </>
                                         }
                                     </td></td>
+                                    <td className='text-center border px-4 py-2'>
+                                        {
+                                             user.role === 'admin' || user.role === 'instructor' ?  <span className='uppercase text-green-400 font-bold'>{`${user?.role} `}</span> :<span className='uppercase text-green-400 font-bold'>{`student`}</span>
+                                        }
+                                    </td>
 
                                 {/*  */}
                                 {/* <td>{ user.role === 'admin' ? 'admin' :

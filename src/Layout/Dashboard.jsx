@@ -2,14 +2,15 @@ import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
 import { motion } from 'framer-motion';
-import { MdManageAccounts, MdOutlineManageAccounts } from 'react-icons/md';
+import { MdManageAccounts, MdOutlineManageAccounts, MdOutlineWorkHistory } from 'react-icons/md';
 import { SiGoogleclassroom } from 'react-icons/si';
 import { BsDatabaseAdd } from 'react-icons/bs';
 import { FaSchool, FaCheckCircle } from 'react-icons/fa';
 import { AuthContext } from '../providers/AuthProvider';
 import { useContext } from 'react';
-import { AiOutlineLogout } from 'react-icons/ai';
+import { AiOutlineLogout ,AiOutlineFileDone} from 'react-icons/ai';
 import { TiArrowBackOutline } from 'react-icons/ti';
+import { BsFileEarmarkCheck } from 'react-icons/bs';
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
@@ -90,17 +91,17 @@ const Dashboard = () => {
 
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
                                     <NavLink to="/dashboard/mycart" activeClassName="font-bold">
-                                        My Selected Classes
+                                    <BsFileEarmarkCheck size={24} className="mr-2" style={{ display: 'inline-block' }} ></BsFileEarmarkCheck>   My Selected Classes 
                                     </NavLink>
                                 </li>
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
                                     <NavLink to="/dashboard/myenroll" activeClassName="font-bold">
-                                        My Enroll Classes
+                                    <AiOutlineFileDone size={24} className="mr-2" style={{ display: 'inline-block' }}></AiOutlineFileDone>    My Enroll Classes
                                     </NavLink>
                                 </li>
                                 <li className='text-green-700 hover:text-green-400 uppercase  font-bold'>
                                     <NavLink to="/dashboard/paymenthistory" activeClassName="font-bold">
-                                        Payment History
+                                  <MdOutlineWorkHistory size={24} className="mr-2" style={{ display: 'inline-block' }}></MdOutlineWorkHistory>      Payment History
                                     </NavLink>
                                 </li>
                                 {/* Add more student-specific links */}

@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Navigate, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { Helmet } from 'react-helmet';
 
 const Registration = () => {
     const { register, handleSubmit,reset, formState: { errors }, watch  } = useForm();
@@ -58,6 +59,9 @@ const Registration = () => {
 
     return (
         <div>
+          <Helmet>
+                <title>SkillSet | Registration</title>
+            </Helmet>
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-xs">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit(onSubmit)}>

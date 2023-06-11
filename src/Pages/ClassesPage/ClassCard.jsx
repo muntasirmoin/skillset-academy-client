@@ -18,10 +18,10 @@ const ClassCard = ({ classData, selectedCart }) => {
     // console.log('user email', user?.email)
 
     const [selected, setSelected] = useState(false);
-    const [paid, setPaid]= useState(false);
+    const [paid, setPaid] = useState(false);
     const { className, image, availableSeats, price, _id } = classData;
 
-// class data
+    // class data
 
     fetch(`http://localhost:3000/selectedCard/${user?.email}`)
         .then(res => res.json())
@@ -40,14 +40,14 @@ const ClassCard = ({ classData, selectedCart }) => {
         });
 
 
-        // test here-----------------------
-        fetch(`http://localhost:3000/payments/${_id}`)
+    // test here-----------------------
+    fetch(`http://localhost:3000/payments/${_id}`)
         .then(res => res.json())
         .then(selectedClassesData => {
-            
+
 
             const selectedClassesID = selectedClassesData.map(item => item.selectId); // Extract the selectId from selected classes
-          
+
             if (selectedClassesID.includes(classData._id) === true) {
                 // console.log('hi');
                 setPaid(true);
@@ -57,7 +57,7 @@ const ClassCard = ({ classData, selectedCart }) => {
 
 
 
-        // test
+    // test
 
 
 
@@ -82,7 +82,7 @@ const ClassCard = ({ classData, selectedCart }) => {
 
     //   start-------------------------------------------------
 
-    
+
     // const { name, image, price, recipe, _id } = item;
 
 
@@ -104,7 +104,7 @@ const ClassCard = ({ classData, selectedCart }) => {
     const handleAddToSelect = classData => {
         console.log(classData);
         if (user && user.email) {
-            const selectItem = { selectId: _id, className, image, price, email: user.email,availableSeats}
+            const selectItem = { selectId: _id, className, image, price, email: user.email, availableSeats }
             fetch('http://localhost:3000/carts', {
                 method: 'POST',
                 headers: {
@@ -145,14 +145,14 @@ const ClassCard = ({ classData, selectedCart }) => {
     // end
     //  main handle end
     return (
-        <div className={`card ${getCardBackground()}`}>
+        <div className={`card ${getCardBackground()} rounded-lg p-4 shadow-xl `}>
             <img src={classData?.classImageUrl} alt='image' className="w-full h-40" />
             <div className="card-body">
-                <h2 className="card-title">Class Name: {classData.className}</h2>
+                <h2 className="font-bold text-2xl">{classData.className}</h2>
                 <p className="text-gray-600">Instructor: {classData.instructorName}</p>
                 <p className="text-gray-600">Available Seats: {classData.availableSeats}</p>
                 <p className="text-gray-600">Enrolled Seats: {classData.enroll}</p>
-                <p className="text-gray-600">Price: {classData.price}</p>
+                <p className="text-gray-600 font-bold">Price: $ {classData.price}</p>
                 {isUserLoggedIn ? (
                     <button
                         className={`btn ${isButtonDisabled ? 'btn-disabled' : 'btn-primary'}`}
