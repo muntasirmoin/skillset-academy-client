@@ -95,9 +95,9 @@ const ManageClasses = () => {
     // Class Image, Class name, Instructor name, Instructor email, 
     // Available seats, Price, Status(pending/approved/denied) 3 buttons( Approve, Deny and send feedback).
     return (
-        <div>
+        <div className=''>
             <h3 className="text-3xl font-semibold my-4 text-center">Manage Classes: {classes.length}</h3>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-scroll overflow-y-scroll">
                 <table className="table  table-auto w-full overflow-x-auto">
                     {/* head */}
                     <thead>

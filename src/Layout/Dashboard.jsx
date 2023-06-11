@@ -11,7 +11,7 @@ const Dashboard = () => {
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
     return (
-        <div className="flex">
+        <div className="flex mb-5">
             <div className="w-1/4 bg-gray-200 border-2 border-green-400">
                 <nav className="p-4">
                     <ul className="space-y-2">
