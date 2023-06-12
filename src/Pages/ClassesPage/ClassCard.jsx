@@ -46,12 +46,18 @@ const ClassCard = ({ classData, selectedCart }) => {
         .then(selectedClassesData => {
 
 
-            const selectedClassesID = selectedClassesData.map(item => item.selectId); // Extract the selectId from selected classes
-
-            if (selectedClassesID.includes(classData._id) === true) {
-                // console.log('hi');
+            const selectedClassesID = selectedClassesData.map(item => item.selectId);
+             // Extract the selectId from selected classes
+             const selectedClassesEmail = selectedClassesData.map(item => item.email); 
+             if (selectedClassesID.includes(classData._id) && selectedClassesEmail.includes(user.email)) {
                 setPaid(true);
-            }
+              }
+
+            // if (selectedClassesID.includes(classData._id) === true) {
+                
+               
+            //     setPaid(true);
+            // }
         });
 
 

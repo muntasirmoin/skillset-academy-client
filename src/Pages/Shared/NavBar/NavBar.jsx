@@ -33,7 +33,7 @@ const NavBar = ({isLoggedIn,userProfilePicture}) => {
           <li>
           <Link to='approveclass'> <a href="#" className="hover:text-white">Classes</a></Link> 
           </li>
-          {user ? (
+          {user ? <>
             <li className="flex items-center space-x-2">
               {/* dashboard */}
               <Link to='/dashboard/counter'><a href="#" className="hover:text-white">Dashboard</a></Link>
@@ -47,7 +47,7 @@ const NavBar = ({isLoggedIn,userProfilePicture}) => {
                 Logout
               </button>
             </li>
-          ) : (
+            </>     : (
             <li>
                 <Link to='/login'><button className="border border-gray-300 px-2 py-1 rounded text-sm hover:bg-gray-300">
                 login

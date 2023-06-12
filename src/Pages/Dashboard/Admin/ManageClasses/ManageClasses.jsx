@@ -121,7 +121,7 @@ const ManageClasses = () => {
                         {
                             classes.map((classe, index) => <tr key={classe._id}>
                                 <th className='text-center border px-4 py-2'>{index + 1}</th>
-                                <td className='text-center border px-4 py-2'><img src="" alt="image" /></td>
+                                <td className='text-center border px-4 py-2'><img src={classe.classImageUrl} alt="image" /></td>
                                 <td className='text-center border px-4 py-2'>{classe.className}</td>
                                 <td className='text-center border px-4 py-2'>{classe.instructorName}</td>
                                 <td className='text-sm text-center border px-4 py-2'>{classe.instructorEmail}</td>

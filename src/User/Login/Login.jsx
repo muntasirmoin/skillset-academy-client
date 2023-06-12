@@ -42,7 +42,20 @@ const Login = () => {
                   timer: 1500
               });
                 navigate(from, { replace: true });
-            })
+            }).catch(error => {
+              // Error handling for authentication errors
+              if (error.code === 'auth/wrong-password') {
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'error',
+                  title: 'Invalid email/password!',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              } else {
+                // Handle other authentication errors
+                console.log(error);
+    }})
       };
     return (
         <div>

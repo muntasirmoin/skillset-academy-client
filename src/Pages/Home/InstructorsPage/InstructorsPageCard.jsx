@@ -6,7 +6,7 @@ const InstructorsPageCard = ({classData}) => {
         <img src={classData?.photoURL} alt='image' className="w-full h-40" />
         <div className="card-body">
             <h2 className="font-bold text-2xl">{classData.name}</h2>
-            <p className="text-gray-600">Email: {classData.email}</p>
+            <p className="text-gray-600">Email: {classData?.email}</p>
          
            
         </div>

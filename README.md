@@ -1,7 +1,7 @@
 
 
 ## Website name : SkillSet Academy
-Minimum 5 points of your website features
+
 
 ## Live site link
 - 

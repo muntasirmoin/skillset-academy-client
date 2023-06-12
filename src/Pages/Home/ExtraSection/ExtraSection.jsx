@@ -15,11 +15,11 @@ const ExtraSection = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-yellow-500">Develop your Skill with us!</h2>
           </motion.div>
          
-          <p className="text-xl sm:text-2xl text-gray-700 mb-8">
+          <div className="text-xl sm:text-2xl text-gray-700 mb-8">
           <Marquee>
           Skills are not acquired overnight, but through dedication, practice, and a relentless pursuit of improvement. 
           </Marquee>
-          </p>
+          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {/* Add your relevant content here */}
