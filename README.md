@@ -4,7 +4,7 @@
 
 
 ## Live site link
-- 
+- https://skillset-academy.web.app/ 
 
 ## Home Page features
 - Slider
