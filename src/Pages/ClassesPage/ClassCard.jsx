@@ -4,6 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import useAdmin from '../../hooks/useAdmin';
 import useInstructor from '../../hooks/useInstructor';
+import useCart from '../../hooks/useCart';
 // import { AuthContext } from 'path/to/AuthProvider';
 
 const ClassCard = ({ classData, selectedCart }) => {
@@ -101,7 +102,7 @@ const ClassCard = ({ classData, selectedCart }) => {
 
 
 
-
+    const [cart, refetch] = useCart();
 
 
 
@@ -122,7 +123,7 @@ const ClassCard = ({ classData, selectedCart }) => {
                 .then(data => {
                     if (data.insertedId) {
                         // to do
-                        // refetch(); // refetch cart to update the number of items in the cart
+                        refetch(); 
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
