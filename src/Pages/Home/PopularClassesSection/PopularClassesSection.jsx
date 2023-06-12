@@ -5,7 +5,7 @@ const PopularClassesSection = () => {
     const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/class/enrollSix`)
+    fetch(`https://skillset-academy-server.vercel.app/class/enrollSix`)
       .then(res => res.json())
       .then(data => {
         // console.log(data);

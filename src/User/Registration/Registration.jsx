@@ -25,7 +25,7 @@ const Registration = () => {
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email , photoURL: data.photoUrl }
                     
-                        fetch('http://localhost:3000/users', {
+                        fetch('https://skillset-academy-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

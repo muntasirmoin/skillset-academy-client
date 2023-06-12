@@ -7,7 +7,7 @@ const ClassesPage = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/class/approve`)
+    fetch(`https://skillset-academy-server.vercel.app/class/approve`)
       .then(res => res.json())
       .then(data => {
         // console.log(data);

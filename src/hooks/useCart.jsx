@@ -14,7 +14,7 @@ const useCart = () => {
       enabled: !loading,
       queryFn: async () => {
         // Fetch cart data from the server
-        const res = await fetch(`http://localhost:3000/carts?email=${user?.email}`, {
+        const res = await fetch(`https://skillset-academy-server.vercel.app/carts?email=${user?.email}`, {
           headers: {
             authorization: `bearer ${token}`
           }

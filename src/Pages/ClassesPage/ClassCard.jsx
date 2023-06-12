@@ -23,7 +23,7 @@ const ClassCard = ({ classData, selectedCart }) => {
 
     // class data
 
-    fetch(`http://localhost:3000/selectedCard/${user?.email}`)
+    fetch(`https://skillset-academy-server.vercel.app/selectedCard/${user?.email}`)
         .then(res => res.json())
         .then(selectedClassesData => {
             // console.log('cart', selectedClassesData);
@@ -41,7 +41,7 @@ const ClassCard = ({ classData, selectedCart }) => {
 
 
     // test here-----------------------
-    fetch(`http://localhost:3000/payments/${_id}`)
+    fetch(`https://skillset-academy-server.vercel.app/payments/${_id}`)
         .then(res => res.json())
         .then(selectedClassesData => {
 
@@ -111,7 +111,7 @@ const ClassCard = ({ classData, selectedCart }) => {
         console.log(classData);
         if (user && user.email) {
             const selectItem = { selectId: _id, className, image, price, email: user.email, availableSeats }
-            fetch('http://localhost:3000/carts', {
+            fetch('https://skillset-academy-server.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

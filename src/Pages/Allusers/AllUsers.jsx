@@ -16,7 +16,7 @@ const AllUsers = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/users`)
+        fetch(`https://skillset-academy-server.vercel.app/users`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
@@ -26,7 +26,7 @@ const AllUsers = () => {
 
     // admin make
     const handleMakeAdmin = user => {
-        fetch(`http://localhost:3000/users/admin/${user._id}`, {
+        fetch(`https://skillset-academy-server.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -48,7 +48,7 @@ const AllUsers = () => {
     //  make instructor
 
     const handleMakeInstructor = user => {
-        fetch(`http://localhost:3000/users/instructor/${user._id}`, {
+        fetch(`https://skillset-academy-server.vercel.app/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

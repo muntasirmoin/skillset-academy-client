@@ -17,7 +17,7 @@ const PaymentPage = () => {
     const [singleCart, setSingleCart] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:3000/cartspay/${selectId}`)
+        fetch(`https://skillset-academy-server.vercel.app/cartspay/${selectId}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

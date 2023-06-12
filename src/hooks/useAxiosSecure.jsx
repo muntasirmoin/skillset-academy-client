@@ -6,7 +6,7 @@ import { AuthContext } from '../providers/AuthProvider';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:3000', 
+  baseURL: 'https://skillset-academy-server.vercel.app', 
 });
 
 const useAxiosSecure = () => {

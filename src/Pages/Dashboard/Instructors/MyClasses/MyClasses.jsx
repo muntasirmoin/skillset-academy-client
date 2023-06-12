@@ -7,7 +7,7 @@ const MyClasses = () => {
     const { user } = useContext(AuthContext);
    
     useEffect(()=>{
-        fetch(`http://localhost:3000/class/${user?.email}`)
+        fetch(`https://skillset-academy-server.vercel.app/class/${user?.email}`)
         .then(res =>res.json())
         .then(data =>{
             // console.log(data);

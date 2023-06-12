@@ -14,7 +14,7 @@ const navigate = useNavigate();
 const from = '/dashboard';
 
 useEffect(()=>{
-    fetch(`http://localhost:3000/classed/${id}`)
+    fetch(`https://skillset-academy-server.vercel.app/classed/${id}`)
     .then(res =>res.json())
     .then(data =>{
         // console.log(data);
@@ -35,7 +35,7 @@ useEffect(()=>{
     //   e.preventDefault();
   
     //   // Perform the necessary logic to update the class data on the server
-    //   fetch(`http://localhost:3000/class/${classData._id}`, {
+    //   fetch(
     //     method: 'PATCH',
     //     headers: {
     //       'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ useEffect(()=>{
         console.log(updateClass)
 
         // 
-        fetch(`http://localhost:3000/update/${id}`, {
+        fetch(`https://skillset-academy-server.vercel.app/update/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

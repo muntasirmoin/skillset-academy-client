@@ -6,7 +6,7 @@ const InstructorsPage = () => {
     const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/class/instructorGetAll`)
+    fetch(`https://skillset-academy-server.vercel.app/class/instructorGetAll`)
       .then(res => res.json())
       .then(data => {
         // console.log(data);

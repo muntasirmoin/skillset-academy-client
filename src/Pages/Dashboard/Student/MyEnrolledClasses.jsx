@@ -6,7 +6,7 @@ const MyEnrolledClasses = () => {
     const [enrolled, setEnrolled] = useState();
 
     useEffect(() => {
-        fetch(`http://localhost:3000/payment/${user?.email}`)
+        fetch(`https://skillset-academy-server.vercel.app/payment/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log('payment data', data);

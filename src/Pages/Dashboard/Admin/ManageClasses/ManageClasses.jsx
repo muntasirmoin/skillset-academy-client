@@ -12,7 +12,7 @@ const ManageClasses = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/class`)
+        fetch(`https://skillset-academy-server.vercel.app/class`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -22,7 +22,7 @@ const ManageClasses = () => {
     // approve
 
     const handleMakeApprove = user => {
-        fetch(`http://localhost:3000/class/approve/${user._id}`, {
+        fetch(`https://skillset-academy-server.vercel.app/class/approve/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -43,7 +43,7 @@ const ManageClasses = () => {
 
     // deny
     const handleMakeDeny = user => {
-        fetch(`http://localhost:3000/class/deny/${user._id}`, {
+        fetch(`https://skillset-academy-server.vercel.app/class/deny/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

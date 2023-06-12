@@ -9,7 +9,7 @@ const FeedbackModal = ({ selectedClassId, closeModal }) => {
         // ...
     
         // Update the feedback for the selected class ID
-        fetch(`http://localhost:3000/class/${selectedClassId}`, {
+        fetch(`https://skillset-academy-server.vercel.app/class/${selectedClassId}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',

@@ -61,7 +61,7 @@ const AddClass = () => {
       })
 
     // main fatch
-    // fetch(`http://localhost:3000/class`, {
+    // fetch(`class`, {
     //   method: 'POST',
     //   headers: {
     //     'content-type': 'application/json'

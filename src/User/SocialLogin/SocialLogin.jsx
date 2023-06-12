@@ -17,7 +17,7 @@ const SocialLogin = () => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
                 const savedUser = { name: loggedInUser.displayName, email: loggedInUser.email, photoURL:loggedInUser.photoURL }
-                fetch('http://localhost:3000/users', {
+                fetch('https://skillset-academy-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
