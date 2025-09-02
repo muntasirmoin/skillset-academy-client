@@ -3,6 +3,11 @@
 ## Website name : SkillSet Academy
 
 
+**SkillSet Academy** is a MERN stack-based sports academy management system. Students can explore courses, view instructor details, and enroll in courses. Admins can manage courses, instructors, and users, ensuring smooth platform management.
+
+---
+
+
 ## Live site link
 - https://skillset-academy.web.app/ 
 
@@ -51,4 +56,19 @@
 - "react-responsive-carousel"
 - "react-router-dom"    
 - "sweetalert2"
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run **SkillSet Academy Client** locally on your PC:
+
+1. **Clone the repository**  
+```bash
+git clone https://github.com/muntasirmoin/skillset-academy-client.git
+
+2. Install dependencies
+npm install
+3. Run the development server
+npm run dev
+   
         
