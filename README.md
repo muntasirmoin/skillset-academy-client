@@ -3,7 +3,46 @@
 ## Website name : SkillSet Academy
 
 
-**SkillSet Academy** is a MERN stack-based sports academy management system. Students can explore courses, view instructor details, and enroll in courses. Admins can manage courses, instructors, and users, ensuring smooth platform management.
+SkillSet Academy is a full-stack MERN web application that provides an interactive platform for students to enroll in skill-based classes and explore detailed information about classes and instructors. The application also features an admin panel with full CRUD functionality and role-based authentication.
+
+🚀 Tech Stack
+
+Frontend: React, react-dom, react-hook-form, react-query, Tailwind CSS, DaisyUI
+
+Backend: Node.js, Express.js, MongoDB, dotenv, cors
+
+Authentication: Firebase
+
+Other Tools: Environment configuration with dotenv
+
+🔑 Features
+
+👩‍🎓 User (Student):
+Role-based login (user )
+
+Browse and enroll in skill classes
+
+View detailed class and instructor information
+
+🛠️ Admin:
+
+Role-based login (Admin )
+
+Add, update, edit, and delete students, classes, and instructors
+
+Manage overall platform data
+
+⚡ Highlights
+
+Role-Based Authentication & Authorization
+
+CRUD Operations for classes, students, and instructors
+
+Responsive UI styled with Tailwind CSS and DaisyUI
+
+Real-Time Data Fetching with React Query
+
+Form Handling & Validation using React Hook Form
 
 ---
 
