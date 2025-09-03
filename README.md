@@ -8,48 +8,49 @@ SkillSet Academy is a full-stack MERN web application that provides an interacti
 ---
 ## 🚀 Tech Stack
 
-Frontend: React, react-dom, react-hook-form, react-query, Tailwind CSS, DaisyUI
+- Frontend: React, react-dom, react-hook-form, react-query, Tailwind CSS, DaisyUI
 
-Backend: Node.js, Express.js, MongoDB, dotenv, cors
+- Backend: Node.js, Express.js, MongoDB, dotenv, cors
 
-Authentication: Firebase
+- Authentication: Firebase
 
-Other Tools: Environment configuration with dotenv
+- Other Tools: Environment configuration with dotenv
 
 ---
 
 ## 🔑 Features
 
 ## 👩‍🎓 User (Student):
-Role-based login (user )
 
-Browse and enroll in skill classes
+- Role-based login (user )
 
-View detailed class and instructor information
+- Browse and enroll in skill classes
+
+- View detailed class and instructor information
 
 ---
 
 ## 🛠️ Admin:
 
-Role-based login (Admin )
+- Role-based login (Admin )
 
-Add, update, edit, and delete students, classes, and instructors
+- Add, update, edit, and delete students, classes, and instructors
 
-Manage overall platform data
+- Manage overall platform data
 
 ---
 
 ## ⚡ Highlights
 
-Role-Based Authentication & Authorization
+- Role-Based Authentication & Authorization
 
-CRUD Operations for classes, students, and instructors
+- CRUD Operations for classes, students, and instructors
 
-Responsive UI styled with Tailwind CSS and DaisyUI
+- Responsive UI styled with Tailwind CSS and DaisyUI
 
-Real-Time Data Fetching with React Query
+- Real-Time Data Fetching with React Query
 
-Form Handling & Validation using React Hook Form
+- Form Handling & Validation using React Hook Form
 
 ---
 
