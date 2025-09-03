@@ -58,22 +58,44 @@
 - "sweetalert2"
 ---
 
-## ⚙️ Installation & Setup
+## 🚀 Getting Started
 
-Follow these steps to run **SkillSet Academy Client** locally on your PC:
+Follow the steps below to clone, install, and run the project.
+
+---
+
+### 📥 Installation
+
+1. **Clone the Repository:**
 
 ```bash
-# Clone the repository
-git clone https://github.com/muntasirmoin/skillset-academy-client.git
+git clone https://github.com/muntasirmoin/skillset-academy-client.git 
+```
+
+2. **Navigate into the project folder:**
+
+```bash
 cd skillset-academy-client
+```
 
-# Install dependencies
+3. **Install dependencies:**
+
+Using **npm**:
+
+```bash
 npm install
+```
 
-# Set up environment variables (create a .env file in the root folder)
+---
 
-# Run the development server
+### ▶️ Run the Development Server
+
+To start the local server:
+
+```bash
 npm run dev
+```
+
 
 
    
