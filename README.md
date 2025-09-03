@@ -1,6 +1,6 @@
 
 
-##Title : ⚽ SkillSet Academy 🏀
+## Title : ⚽ SkillSet Academy 🏀
 
 
 SkillSet Academy is a full-stack MERN web application that provides an interactive platform for students to enroll in skill-based classes and explore detailed information about classes and instructors. The application also features an admin panel with full CRUD functionality and role-based authentication.
